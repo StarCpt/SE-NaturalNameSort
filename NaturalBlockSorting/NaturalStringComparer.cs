@@ -7,10 +7,13 @@ namespace NaturalBlockSorting;
 
 public class NaturalStringComparer : IComparer<string>
 {
-    int IComparer<string>.Compare(string x, string y) => Compare(x, y);
+    int IComparer<string>.Compare(string? x, string? y) => Compare(x, y);
 
-    public static int Compare(string left, string right)
+    public static int Compare(string? left, string? right)
     {
+        left = left?.TrimEnd() ?? string.Empty;
+        right = right?.TrimEnd() ?? string.Empty;
+
         int leftStrLength = left.Length;
         int rightStrLength = right.Length;
 
