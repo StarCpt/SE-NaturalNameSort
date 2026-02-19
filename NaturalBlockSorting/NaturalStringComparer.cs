@@ -24,7 +24,8 @@ public class NaturalStringComparer : IComparer<string>
             rightStrLength--;
 
         // return early if strings without trailing numbers aren't the same
-        if (leftStrLength != rightStrLength)
+        // also return if one or both strings contain no trailing number
+        if (leftStrLength != rightStrLength || leftStrLength == left.Length || rightStrLength == right.Length)
         {
             return left.CompareTo(right);
         }
@@ -44,8 +45,8 @@ public class NaturalStringComparer : IComparer<string>
         while (rightNumberStart < right.Length && right[rightNumberStart] == '0')
             rightNumberStart++;
 
-        string leftNumberStr = left.Substring(leftNumberStart);
-        string rightNumberStr = right.Substring(rightNumberStart);
+        string leftNumberStr = leftNumberStart < left.Length ? left.Substring(leftNumberStart) : "0";
+        string rightNumberStr = rightNumberStart < right.Length ? right.Substring(rightNumberStart) : "0";
 
         int? result = null;
 

@@ -12,8 +12,8 @@ public static class MyTerminalComparerPatch
     [HarmonyPrefix]
     public static bool Compare_MyTerminalBlock_Prefix(ref int __result, MyTerminalBlock lhs, MyTerminalBlock rhs)
     {
-        string leftName = (lhs.CustomName?.ToString() ?? lhs.DefinitionDisplayNameText).TrimEnd();
-        string rightName = (rhs.CustomName?.ToString() ?? rhs.DefinitionDisplayNameText).TrimEnd();
+        string leftName = lhs.CustomName?.ToString() ?? lhs.DefinitionDisplayNameText;
+        string rightName = rhs.CustomName?.ToString() ?? rhs.DefinitionDisplayNameText;
 
         int comparison = NaturalStringComparer.Compare(leftName, rightName);
         __result = comparison != 0 ? comparison : lhs.NumberInGrid.CompareTo(rhs.NumberInGrid);
@@ -24,7 +24,7 @@ public static class MyTerminalComparerPatch
     [HarmonyPrefix]
     public static bool Compare_MyBlockGroup_Prefix(ref int __result, MyBlockGroup x, MyBlockGroup y)
     {
-        __result = NaturalStringComparer.Compare(x.Name.ToString().TrimEnd(), y.Name.ToString().TrimEnd());
+        __result = NaturalStringComparer.Compare(x.Name.ToString(), y.Name.ToString());
         return false;
     }
 }
