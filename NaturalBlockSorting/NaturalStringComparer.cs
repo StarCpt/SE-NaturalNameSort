@@ -64,6 +64,16 @@ public class NaturalStringComparer : IComparer<string>
             }
         }
 
+        if (result is 0)
+        {
+            // if number has leading zeroes, the one with more leading zeroes precedes the other
+            int leftLeadingZeroes = leftNumberStart - leftStrLength;
+            int rightLeadingZeroes = rightNumberStart - rightStrLength;
+
+            // swap left/right since we want descending order (001, 01, 1)
+            result = rightLeadingZeroes.CompareTo(leftLeadingZeroes);
+        }
+
         // fall back to normal string comparison if we couldn't parse the number
         return result ?? left.CompareTo(right);
     }
