@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36811.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaturalNameSort", "NaturalBlockSorting\NaturalNameSort.csproj", "{82790586-A4E5-4819-A4F3-D68FEE6CD5D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaturalNameSort", "NaturalNameSort\NaturalNameSort.csproj", "{82790586-A4E5-4819-A4F3-D68FEE6CD5D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
